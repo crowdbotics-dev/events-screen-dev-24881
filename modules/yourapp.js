@@ -53,7 +53,19 @@ const YourApp = () => {
         </View>
       </View>
 
-      <View style={{ flex: 1, backgroundColor: "green" }} />
+      <View style={styles.postsOuterContainer}>
+        <View style={styles.postsInnterTopContainer}>
+          <Text style={{ fontSize: 16 }}>
+            User Posts
+          </Text>
+        </View>
+        <View style={styles.postsInnterBottomContainer}>
+          <Post/>
+          <Post/>
+          <Post/>
+          <Post/>
+        </View>
+      </View>
     </ScrollView>
   );
 };
@@ -109,10 +121,33 @@ const styles = StyleSheet.create({
   biographyInnerBottomContainer: {
     marginRight: 25,
   },
-  postsContainer: {
-
+  postsOuterContainer: {
+    flex: 1,
+    backgroundColor: "#FFFFFF"
   },
+  postsInnterTopContainer: {
+    marginVertical: 10,
+    paddingLeft: 30
+  },
+  postsInnterBottomContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between"
+  },
+  post: {
+    borderWidth: 1,
+    margin: 10,
+  }
 });
+
+const Post = () => {
+  return (
+    <View style={styles.post}>
+      <Image
+        source={require("../assets/cb-logo.png")}>
+      </Image>
+    </View>
+  );
+};
 
 export const YourAppModule = {
   name: "YourApp",
